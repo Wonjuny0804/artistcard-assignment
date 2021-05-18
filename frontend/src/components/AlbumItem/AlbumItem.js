@@ -5,7 +5,6 @@ import {
   Link
 } from 'react-router-dom';
 
-
 const AlbumItem = ({ albumCover, albumTitle, artist, albumid }) => {
   return (
     <Link

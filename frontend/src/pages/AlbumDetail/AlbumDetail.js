@@ -9,12 +9,10 @@ import {
   songlist,
 } from './AlbumDetail.module.scss';
 import { useState, useEffect, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
 import { getData } from 'utility';
 
 const AlbumDetail = () => {
   let { albumid } = useParams();
-  const history = useHistory();
 
   const [data, setData] = useState(null);
   const [songs, setSongs] = useState(null);
@@ -77,7 +75,7 @@ const AlbumDetail = () => {
     }
     console.log(playing);
   }
-  
+
   if (loading) return 'it is loading';
   if (error) return 'There is an Error';
 

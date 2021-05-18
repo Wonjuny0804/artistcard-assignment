@@ -5,7 +5,7 @@ require('dotenv').config();
 const { downloadFile } = require('./s3');
 
 console.log('===================', process.env.mysql_host);
-// db 연결
+
 const connection = mysql.createConnection({
   host: process.env.mysql_host,
   user: process.env.mysql_user,
@@ -84,8 +84,6 @@ app.get('/album/:albumid', async (req, res) => {
       }
     });
 });
-
-
 
 // app listen
 app.listen(8001, () => console.log('Server Up and running at 8001'));

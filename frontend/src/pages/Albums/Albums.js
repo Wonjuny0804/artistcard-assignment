@@ -4,13 +4,10 @@ import {
 import { getData } from 'utility';
 import { useState, useEffect } from 'react';
 
-
 const Albums = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  
 
   useEffect(() => {
     getData('albums')
@@ -31,7 +28,7 @@ const Albums = () => {
 
   return (
     <main>
-      { data && data.map(({
+      {data && data.map(({
         album_cover,
         name,
         artist,
