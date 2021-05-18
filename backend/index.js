@@ -46,7 +46,6 @@ app.get('/songs', async (req, res) => {
 });
 
 app.get('/albums', async (req, res) => {
-
   try {
     albums = await Promise.all(albums.map(async album => {
       const album_cover = await downloadFile(`${album.artist}.jpg`);
@@ -57,6 +56,35 @@ app.get('/albums', async (req, res) => {
   }
   res.send(albums);
 });
+
+app.get('/songs/:albumid', async (req, res) => {
+  let albumSongs = [];
+    connection.query(`SELECT * FROM songs WHERE album_id = ${req.params.albumid}`,  async (error, rows, fields) => {
+      try {
+        albumSongs = [...rows];
+        albumSongs = await Promise.all(albumSongs.map(async song => {
+          const song_url = await downloadFile(`${song.name}.mp3`);
+          return {...song, song_url};
+        }));
+        res.send(albumSongs);
+      } catch (err) {
+        res.send(err);
+      }
+    });
+});
+
+app.get('/album/:albumid', async (req, res) => {
+    connection.query(`SELECT * FROM albums WHERE album_id = ${req.params.albumid}`,  async (error, rows, fields) => {
+      try {
+        const album_cover = await downloadFile(`${rows[0].artist}.jpg`);
+        const response = {...rows[0], album_cover};
+        res.send(response);
+      } catch (err) {
+        res.send(err);
+      }
+    });
+});
+
 
 
 // app listen

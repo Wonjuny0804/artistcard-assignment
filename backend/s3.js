@@ -6,12 +6,6 @@ const {
   GetObjectCommand,
 } = require('@aws-sdk/client-s3');
 const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
-// const {
-//   bucketName,
-//   region,
-//   accessKey,
-//   secretAccessKey,
-// } = process.env;
 const region = process.env.S3_BUCKET_REGION;
 const bucketName = process.env.S3_BUCKET_NAME;
 const accessKey = process.env.S3_ACCESS_KEY;
