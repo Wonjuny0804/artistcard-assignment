@@ -1,0 +1,19 @@
+
+.albumDetailItem {
+  img {
+    width: 100%;
+  }
+  table {
+    width: 100%;
+    border: 1px solid black;
+    font-size: 12px;
+    border-collapse: collapse;
+    th {
+      width: 30%;
+      border-right: 1px solid black;
+    }
+    td {
+      padding: 5px;
+    }
+  }
+}
