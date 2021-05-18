@@ -1,0 +1,26 @@
+
+.albumItem {
+  width: 40vw;
+  border: 1px solid black;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+  color: black;
+  
+  img {
+    width: 40vw;
+    height: 40vw;
+  }
+
+  h3 {
+    font-size: 15px;
+    margin: 0;
+  }
+
+  p {
+    margin: 0px;
+    font-size: 13px;
+  }
+}
